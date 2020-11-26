@@ -1,0 +1,21 @@
+#+STARTUP: showeverything
+*** Warning: this project is for personal purposes only
+
+I need it to be public so I can load =bundle.js=, produced by =webpack=-ing https://www.gitlab.com/spellcard199/quiversinapot-mxgraph, using a bookmarklet.
+
+In case you decided to run any code in this repository, I decline responsibility for any damage it may cause.
+
+*** How to use
+
+1. Make new bookmarklet:
+     1. Add any page to bookmarks (optionally, give it a meaningful name like "loadQipmx")
+     2. Change bookmark's URL to: 
+     #+BEGIN_SRC javascript
+     javascript:fetch("https://raw.githubusercontent.com/spellcard199/quiversinapot-mxgraph-dist/master/bundle.js", {cache: "no-store"}).then(res => res.text()).then(txt => {eval(txt); window.qipmx.loadPlugin(false)})
+     #+END_SRC
+2. In a diagrams.net's diagram, click on the bookmark
+
+*** If Quiversinapot-mxgraph is on gitlab.com, why use github.com for this?
+
+On gitlab.com, raw files are "CORS blocked", while on github.com they are not.
+- https://stackoverflow.com/questions/60112151/unable-to-fetch-data-from-a-gitlab-file-getting-cors-exception.
